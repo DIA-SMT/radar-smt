@@ -34,8 +34,18 @@ de aceptación no está especificado y no debe programarse todavía.
 9. Marca: colores institucionales **no** se usan como semáforo de riesgo. Severidad = paleta propia + doble codificación (color + ícono + texto). Tipografía Poppins.
 10. Español rioplatense institucional en UI y comunicación: sobrio, sin ironía, sin adjetivación política.
 
+## Subproyectos
+
+- Raíz: aplicación web (Next.js) — sala de situación del Comité.
+- `bot/`: bot de Telegram (Python 3.12 + aiogram + Postgres). Tiene sus propios
+  `CLAUDE.md` (bloques 0–7, reglas R1–R12) y `CLAUDE_E3.2.md` (ingesta).
+  **Se trabaja bloque por bloque, con aprobación de Marco entre bloques.**
+  Su esquema vive en el schema `radar_bot` de la misma base Supabase durante
+  el desarrollo sin Docker; en local usa docker-compose.
+
 ## Estado actual
 
-- Sprint 0 en curso: esquema núcleo aplicado (11 tablas, RLS, auditoría inmutable).
+- Sprint 0 (web): esquema núcleo aplicado en schema `public` (11 tablas, RLS, auditoría inmutable).
+- Bot: Bloque 0 completado (esqueleto, compose, esquema en `radar_bot`, seed, tests estructurales verificados). Bloque 1 espera aprobación.
 - Pendiente Sprint 0: tests de restricciones estructurales en CI, seed de los seis casos ficcionalizados (requiere `RADAR_documento_rector_v1.md`, aún no está en el repo).
 - Desarrollo solo con casos ficcionalizados hasta dictamen escrito de la Asesoría Letrada (transferencia internacional de datos, Ley 25.326).
